@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gpt-researcher-anysearch"
+version = "0.1.0"
+description = "AnySearch retriever plugin for GPT Researcher (RETRIEVER=anysearch)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [
+    { name = "Corey Tasz", email = "ceedotrock@gmail.com" },
+]
+dependencies = [
+    "gpt-researcher>=0.17.0",
+    "requests",
+]
+keywords = ["gpt-researcher", "retriever", "anysearch", "search"]
+
+[project.urls]
+Homepage = "https://github.com/ceedot-rock/gpt-researcher-anysearch"
+"Bug Tracker" = "https://github.com/assafelovic/gpt-researcher/issues"
+
+[project.entry-points."gpt_researcher.retrievers"]
+anysearch = "anysearch_retriever:AnySearchRetriever"
+
+[tool.hatch.build.targets.wheel]
+packages = ["anysearch_retriever"]
